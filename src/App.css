@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+.navigationbar-container {
+  width: 100%;
+  background-color: skyblue;
+  overflow: hidden;
+
+}
+
+.text-header {
+  float: left;
+  display: block;
+  text-align: left;
+  padding: 10px;
+  margin: 5px 5px 5px 5px;
+}
+
+.text-admin {
+  float: right;
+  display: block;
+  text-align: left;
+  padding: 10px;
+  font-size: initial;
+  margin: 10px 10px 0px 0px;
+}
+
+.text-admin:hover {
+  background-color: rgb(91, 208, 91);
+  border: #f1f1f1;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 15%;
+  height: 100%;
+  background-color: #f5efef;
+}
+
+/* Middle column */
+.column.middle {
+  width: 85%;
+  background-color: #5b4e4e7a;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+  .column.side,
+  .column.middle {
+    width: 100%;
+  }
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
+.button-dashboard {
+  background-color: rgb(202, 145, 72);
+}
+
+.dashboard-buttons {
+  width: 100%;
+}

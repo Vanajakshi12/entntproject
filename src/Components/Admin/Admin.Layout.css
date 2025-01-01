@@ -1,0 +1,51 @@
+
+
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 21%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    background-color: rgb(212, 201, 205);
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 79%;
+    background-color: white;
+  }
+  
+  /* Clear floats after the columns */
+  
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  .button-sidebar{
+    width: 200px;
+    height: 65px;
+    border: 9px solid rgb(197, 193, 200)
+  }.button-sidebar:hover{
+    background-color: rgb(112, 146, 224);
+  }
+  .button-Add {
+    width: 200px;
+    background-color: #128abb;
+    color: white;
+    border: none;
+    height: 43px;
+}
