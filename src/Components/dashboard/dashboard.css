@@ -1,0 +1,33 @@
+.card-dashboard-company {
+  border-radius: 10px !important;
+}
+
+.button-card {
+  width: 100%;
+  height: 68px;
+  /* border: 2px solid red; */
+  border-radius: 18px;
+}
+
+.delayed-color {
+  background-color: red;
+
+
+}
+
+.column.side {
+  width: 20%;
+  height: 100%;
+  background-color: #f5efef;
+}
+
+/* Middle column */
+.column.middle {
+  width: 80%;
+  background-color: #5b4e4e7a;
+}
+
+.sheduled-color {
+  background-color: yellow;
+
+}
