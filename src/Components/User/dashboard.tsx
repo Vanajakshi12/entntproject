@@ -103,11 +103,6 @@ export default function dashboard() {
   return (
     <>
       <div className="row">
-        <div className="column side">
-          <>
-            <Button className="dashboard-buttons">Company DashBoard</Button>
-          </>
-        </div>
 
         <div className="column middle">
           <Grid
