@@ -12,12 +12,11 @@
 
 }
 .button-card:hover{
-  width:95% ;
-  height: 78px;
-  transition: width 4.2s, height 4.2s;
-  background-color: rgb(241, 165, 52);
-  -webkit-animation: ani 0.7s steps(29) forwards;
-  animation: ani 0.7s steps(29) forwards;
+  width:91% ;
+  height: 74px;
+  transition: width 15s, height 15s;
+  background-color: rgb(193, 190, 186);
+
 }
 
 .delayed-color {
