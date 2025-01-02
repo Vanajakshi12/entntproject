@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import {
-  addMethod,
-  updateMethod,
-} from "../../features/company/communicationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addMethod } from "../../features/company/communicationSlice.ts";
 import {
   AppBar,
   Dialog,
@@ -13,52 +10,74 @@ import {
   Typography,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import "./Communication.methods.css"
+import "./Communication.methods.css";
 
 import { TransitionProps } from "@mui/material/transitions";
+import { RootState } from "../../app/store";
+
 const MethodForm = (props: any) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    sequence: "",
-    mandatory: false,
-  });
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [sequence, setSequence] = useState(0);
+  const [mandatory, setMandatory] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const dispatch = useDispatch();
+  const methods = useSelector(
+    (state: RootState) => state.communication.communicationMethods
+  );
 
-  const handleChange = (e) => {
-    // const { name, value, type, checked } = e.target;
-    // setFormData({
-    //   ...formData,
-    //   [name]: type === "checkbox" ? checked : value,
-    // });
+  const validateSpaces = (value: string): boolean => {
+    return value.trim() === value && value.trim() !== "";
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // if (currentMethod) {
-    //   dispatch(updateMethod({ ...formData, id: currentMethod.id }));
-    // } else {
-    //   dispatch(addMethod({ ...formData, id: Date.now() }));
-    // }
-    // onClose();
-  };
-  const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & {
-      children: React.ReactElement<unknown>;
-    },
-    ref: React.Ref<unknown>
-  ) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
 
+    // Validations
+    if (!validateSpaces(name)) {
+      setError("Name cannot be empty, contain only spaces, or start/end with spaces.");
+      return;
+    }
+    if (!validateSpaces(description)) {
+      setError("Description cannot be empty, contain only spaces, or start/end with spaces.");
+      return;
+    }
+    if (sequence < 0) {
+      setError("Sequence must be a non-negative number.");
+      return;
+    }
+
+    setError(null);
+
+    // Dispatch action to add a method
+    dispatch(
+      addMethod({
+        id: methods.length + 1,
+        name,
+        description,
+        sequence,
+        mandatory,
+      })
+    );
+
+    // Reset form and close dialog
+    props.handleClose();
+    setName("");
+    setDescription("");
+    setSequence(0);
+    setMandatory(false);
+  };
+
+ 
   return (
-    <>
-      <div className="container">
+    
+      <div>
         <Dialog
           fullScreen
           open={props.open}
           onClose={props.handleClose}
-          TransitionComponent={Transition}
+          // TransitionComponent={Transition}
         >
           <AppBar sx={{ position: "relative" }}>
             <Toolbar>
@@ -81,44 +100,61 @@ const MethodForm = (props: any) => {
               <label>Name:</label>
               <input
                 type="text"
+                className="input-field"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
               />
+              {!validateSpaces(name) && (
+                <span className="error-text">
+                  Name cannot be empty, contain only spaces, or start/end with spaces.
+                </span>
+              )}
             </div>
             <div>
               <label>Description:</label>
               <input
                 type="text"
+                className="input-field"
                 name="description"
-                value={formData.description}
-                onChange={handleChange}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 required
               />
+              {!validateSpaces(description) && (
+                <span className="error-text">
+                  Description cannot be empty, contain only spaces, or start/end with spaces.
+                </span>
+              )}
             </div>
             <div>
               <label>Sequence:</label>
               <input
                 type="number"
+                className="input-field"
                 name="sequence"
-                value={formData.sequence}
-                onChange={handleChange}
+                value={sequence}
+                onChange={(e) => setSequence(Number(e.target.value))}
                 required
               />
+              {sequence < 0 && (
+                <span className="error-text">Sequence must be a non-negative number.</span>
+              )}
             </div>
             <div>
               <label>
                 <input
-                className="checkbox-enabled"
+                  className="checkbox-enabled"
                   type="checkbox"
                   name="mandatory"
-                  checked={formData.mandatory}
-                  onChange={handleChange}
+                  checked={mandatory}
+                  onChange={(e) => setMandatory(e.target.checked)}
                 />
                 Mandatory
               </label>
             </div>
+            {error && <div className="error-text">{error}</div>}
             <button className="button-company" type="submit">
               Save
             </button>
@@ -132,7 +168,7 @@ const MethodForm = (props: any) => {
           </form>
         </Dialog>
       </div>
-    </>
+    
   );
 };
 

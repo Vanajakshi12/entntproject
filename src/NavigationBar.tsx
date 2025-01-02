@@ -4,7 +4,7 @@ import "./NavigationBar.css";
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
-      <div>Calender App</div>
+      <h3>Calender App</h3>
       <div className="nav-links">
         <a href="/admin" className="nav-item">
           Admin
