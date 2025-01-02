@@ -9,9 +9,10 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 
 type Company = {
+  Id: number;
   name: string;
   lastCommunications: Communication[];
-  nextScheduled: Communication;
+  nextScheduledCommunication: Communication;
 };
 type Communication = {
   type: string;
@@ -20,73 +21,127 @@ type Communication = {
 
 const companies: Company[] = [
   {
-    name: "Company A",
-    lastCommunications: [
-      { type: "LinkedIn Post", date: "09/05/2024" },
-      { type: "Email", date: "09/02/2024" },
-      { type: "Call", date: "08/28/2024" },
-      { type: "Meeting", date: "08/15/2024" },
-      { type: "LinkedIn Post", date: "08/05/2024" },
+    "Id": 1,
+    "name": "TechCorp",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-12-15" },
+      { "type": "Email", "date": "2023-12-20" },
+      { "type": "Phone Call", "date": "2023-12-25" },
+      { "type": "LinkedIn Message", "date": "2023-12-30" },
+      { "type": "Email", "date": "2024-01-05" }
     ],
-    nextScheduled: { type: "LinkedIn Post", date: "09/10/2024" },
+    "nextScheduledCommunication": { "type": "Phone Call", "date": "2024-01-10" }
   },
   {
-    name: "Company B",
-    lastCommunications: [
-      { type: "Email", date: "09/01/2024" },
-      { type: "LinkedIn Post", date: "08/25/2024" },
-      { type: "Call", date: "08/22/2024" },
-      { type: "Email", date: "08/20/2024" },
-      { type: "Meeting", date: "08/18/2024" },
+    "Id": 2,
+    "name": "Innovate Inc",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-12-01" },
+      { "type": "LinkedIn Message", "date": "2023-12-05" },
+      { "type": "Phone Call", "date": "2023-12-10" },
+      { "type": "Email", "date": "2023-12-15" },
+      { "type": "LinkedIn Post", "date": "2023-12-20" }
     ],
-    nextScheduled: { type: "Email", date: "09/05/2024" },
+    "nextScheduledCommunication": { "type": "Email", "date": "2024-01-01" }
   },
   {
-    name: "Company C",
-    lastCommunications: [
-      { type: "Call", date: "09/03/2024" },
-      { type: "LinkedIn Post", date: "08/30/2024" },
-      { type: "Email", date: "08/25/2024" },
-      { type: "Meeting", date: "08/19/2024" },
-      { type: "Call", date: "08/10/2024" },
+    "Id": 3,
+    "name": "HealthPlus",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-11-20" },
+      { "type": "Email", "date": "2023-11-25" },
+      { "type": "Phone Call", "date": "2023-11-30" },
+      { "type": "LinkedIn Message", "date": "2023-12-05" },
+      { "type": "Email", "date": "2023-12-10" }
     ],
-    nextScheduled: { type: "Meeting", date: "09/12/2024" },
+    "nextScheduledCommunication": { "type": "LinkedIn Post", "date": "2024-01-05" }
   },
+  {
+    "Id": 4,
+    "name": "EduLearn",
+    "lastCommunications": [
+      { "type": "Phone Call", "date": "2023-12-10" },
+      { "type": "Email", "date": "2023-12-15" },
+      { "type": "LinkedIn Message", "date": "2023-12-20" },
+      { "type": "Survey", "date": "2023-12-25" },
+      { "type": "Phone Call", "date": "2024-01-01" }
+    ],
+    "nextScheduledCommunication": { "type": "LinkedIn Post", "date": "2024-01-15" }
+  },
+  {
+    "Id": 5,
+    "name": "FinServe",
+    "lastCommunications": [
+      { "type": "Email", "date": "2023-11-30" },
+      { "type": "LinkedIn Post", "date": "2023-12-05" },
+      { "type": "LinkedIn Message", "date": "2023-12-10" },
+      { "type": "Phone Call", "date": "2023-12-15" },
+      { "type": "Webinar", "date": "2023-12-20" }
+    ],
+    "nextScheduledCommunication": { "type": "Email", "date": "2024-01-10" }
+  },
+  {
+    "Id": 6,
+    "name": "AutoDrive",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-11-10" },
+      { "type": "Phone Call", "date": "2023-11-15" },
+      { "type": "LinkedIn Message", "date": "2023-11-20" },
+      { "type": "Email", "date": "2023-11-25" },
+      { "type": "Survey", "date": "2023-11-30" }
+    ],
+    "nextScheduledCommunication": { "type": "Phone Call", "date": "2024-01-05" }
+  },
+  {
+    "Id": 7,
+    "name": "EcoGreen",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-12-01" },
+      { "type": "Email", "date": "2023-12-05" },
+      { "type": "Phone Call", "date": "2023-12-10" },
+      { "type": "LinkedIn Message", "date": "2023-12-15" },
+      { "type": "Email", "date": "2023-12-20" }
+    ],
+    "nextScheduledCommunication": { "type": "LinkedIn Message", "date": "2024-01-08" }
+  },
+  {
+    "Id": 8,
+    "name": "BrightSolutions",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-11-25" },
+      { "type": "Survey", "date": "2023-11-30" },
+      { "type": "Email", "date": "2023-12-05" },
+      { "type": "LinkedIn Message", "date": "2023-12-10" },
+      { "type": "Phone Call", "date": "2023-12-15" }
+    ],
+    "nextScheduledCommunication": { "type": "LinkedIn Post", "date": "2024-01-02" }
+  },
+  {
+    "Id": 9,
+    "name": "MediaWave",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-12-01" },
+      { "type": "LinkedIn Message", "date": "2023-12-05" },
+      { "type": "Email", "date": "2023-12-10" },
+      { "type": "Phone Call", "date": "2023-12-15" },
+      { "type": "Webinar", "date": "2023-12-20" }
+    ],
+    "nextScheduledCommunication": { "type": "Survey", "date": "2024-01-07" }
+  },
+  {
+    "Id": 10,
+    "name": "RetailTech",
+    "lastCommunications": [
+      { "type": "LinkedIn Post", "date": "2023-12-01" },
+      { "type": "Email", "date": "2023-12-05" },
+      { "type": "Phone Call", "date": "2023-12-10" },
+      { "type": "LinkedIn Message", "date": "2023-12-15" },
+      { "type": "Survey", "date": "2023-12-20" }
+    ],
+    "nextScheduledCommunication": { "type": "Webinar", "date": "2024-01-10" }
+  }
+]
 
-  {
-    name: "Company D",
-    lastCommunications: [
-      { type: "Email", date: "10/12/2024" },
-      { type: "LinkedIn Post", date: "10/05/2024" },
-      { type: "Call", date: "09/28/2024" },
-      { type: "Meeting", date: "09/18/2024" },
-      { type: "Email", date: "09/10/2024" },
-    ],
-    nextScheduled: { type: "Call", date: "10/15/2024" },
-  },
-  {
-    name: "Company E",
-    lastCommunications: [
-      { type: "LinkedIn Post", date: "09/30/2024" },
-      { type: "Email", date: "09/25/2024" },
-      { type: "Call", date: "09/18/2024" },
-      { type: "Meeting", date: "09/10/2024" },
-      { type: "LinkedIn Post", date: "09/01/2024" },
-    ],
-    nextScheduled: { type: "Email", date: "10/07/2024" },
-  },
-  {
-    name: "Company F",
-    lastCommunications: [
-      { type: "Meeting", date: "09/22/2024" },
-      { type: "Call", date: "09/15/2024" },
-      { type: "LinkedIn Post", date: "09/09/2024" },
-      { type: "Email", date: "09/05/2024" },
-      { type: "Call", date: "08/28/2024" },
-    ],
-    nextScheduled: { type: "LinkedIn Post", date: "10/02/2024" },
-  },
-];
 
 function isDateCrossed(givenDate, format = "MM/DD/YYYY") {
   // Parse the given date using Moment.js
@@ -103,7 +158,6 @@ export default function dashboard() {
   return (
     <>
       <div className="row">
-
         <div className="column middle">
           <Grid
             container
@@ -117,7 +171,7 @@ export default function dashboard() {
                   sx={{ maxWidth: 345, WebkitBorderBottomRightRadius: 30 }}
                 >
                   <CardMedia />
-                  <CardContent style={{ backgroundColor: "#5b4e4e7a" }}>
+                  <CardContent >
                     {" "}
                     <Typography gutterBottom variant="h5" component="div">
                       {x.name}
@@ -129,7 +183,7 @@ export default function dashboard() {
                     ))}
                     <button
                       className={
-                        isDateCrossed(x.nextScheduled.date)
+                        isDateCrossed(x.nextScheduledCommunication.date)
                           ? "button-card delayed-color"
                           : "button-card sheduled-color"
                       }
@@ -137,7 +191,8 @@ export default function dashboard() {
                       Next Scheduled Communication:
                       <br />
                       <span>
-                        {x.nextScheduled.type}: {x.nextScheduled.date}
+                        {x.nextScheduledCommunication.type}:{" "}
+                        {x.nextScheduledCommunication.date}
                       </span>{" "}
                     </button>
                   </CardContent>
