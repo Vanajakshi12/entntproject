@@ -3,8 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1abc9c;
-    color: white;
+    background-color: #76b706;
+    color: rgb(10, 98, 104);
     padding: 15px 20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -17,7 +17,7 @@
 .nav-item {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: rgb(51, 30, 30);
     font-weight: bold;
 }
 
