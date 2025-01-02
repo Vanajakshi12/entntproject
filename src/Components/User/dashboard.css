@@ -1,12 +1,23 @@
 .card-dashboard-company {
   border-radius: 10px !important;
+  height: 100%;
+  background-color: #ffffff7a;
 }
 
 .button-card {
-  width: 100%;
+  width: 90%;
   height: 68px;
-  /* border: 2px solid red; */
+  border: none;
   border-radius: 18px;
+
+}
+.button-card:hover{
+  width:95% ;
+  height: 78px;
+  transition: width 4.2s, height 4.2s;
+  background-color: rgb(241, 165, 52);
+  -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
 }
 
 .delayed-color {
@@ -24,10 +35,12 @@
 /* Middle column */
 .column.middle {
   width: 80%;
-  background-color: #5b4e4e7a;
+  background-color: #ffffff7a;
 }
 
 .sheduled-color {
   background-color: yellow;
+  position: relative;
+
 
 }
