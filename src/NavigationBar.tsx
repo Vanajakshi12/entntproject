@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
         <a href="/admin" className="nav-item">
           Admin
         </a>
-        <a href="/user" className="nav-item">
+        <a href="/" className="nav-item">
           User
         </a>
       </div>
