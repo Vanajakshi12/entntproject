@@ -47,7 +47,7 @@ const FullScreenDialog = (props: passProps) => {
   const [location, setLocation] = useState("");
   const [linkedInProfile, setLinkedInProfile] = useState("");
   const [emails, setEmails] = useState<any>("");
-  const [phoneNumbers, setPhoneNumbers] = useState<any>("+91");
+  const [phoneNumbers, setPhoneNumbers] = useState<any>("00000-00000");
   const [comments, setComments] = useState("");
   const [communicationPeriodicity, setCommunicationPeriodicity] = useState("");
 

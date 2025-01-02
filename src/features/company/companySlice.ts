@@ -208,7 +208,7 @@ const initialState: CompanyState = {
       communicationPeriodicity: "Weekly",
     },
   ],
-  companiesCount: 5,
+  companiesCount: 10,
 };
 
 const companySlice = createSlice({
