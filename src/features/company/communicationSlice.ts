@@ -87,6 +87,7 @@ const initialState: ICommunication = {
 };
 
 const communicationMethodsSlice = createSlice({
+  
   name: "communicationMethods",
   initialState,
   reducers: {
